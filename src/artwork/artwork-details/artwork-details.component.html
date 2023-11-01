@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<div class="d-flex justify-content-between mt-3 px-3">
+    <a routerLink="/" class="text-main text-decoration-none">
+        <i class="bi bi-arrow-left me-2"></i> Explore Gallery</a>
+</div>
+<app-loader *ngIf="!isLoaded"></app-loader>
+<main *ngIf="isLoaded"
+    class="container-fluid d-flex w-100 p-4 justify-content-center align-items-start flex-column flex-sm-column flex-md-column flex-lg-row flex-xl-row flex-xxl-row"
+    id="main-container">
+
+    <div class="image-container mb-2 p-1 d-flex flex-column align-items-center justify-content-start w-100 h-100">
+        <img [src]="artwork_image_url" [alt]="artwork.title" class="w-100" style="max-width: 65vw; height: auto;">
+    </div>
+    <div class="details-container d-flex flex-column w-100 ps-lg-4 pe-2 ps-sm-2 h-25 justify-content-start">
+        <div class="artworkCategory fs-6 text-main mb-1">{{artwork.place_of_origin}}</div>
+        <div class="artworkTitle fs-3 fw-bold mb-2 lh-sm">{{artwork.title}}</div>
+        <div class="artworkDesc mb-3 fw-medium">by {{artwork.artist_display}}</div>
+        <div class="artworkDesc mt-3"><span class="fw-medium">Dimensions: </span>>{{artwork.dimensions}}</div>
+        <div class="artworkDesc mb-3"><span class="fw-medium">Presented on: </span>{{artwork.date_display}}</div>
+        <div class="artworkDesc mb-3"><span class="fw-medium">Provenance text: </span>{{artwork.provenance_text}}</div>
+        <div class="artworkDesc mb-3"><span class="fw-medium">Exhibition History: </span>>{{artwork.exhibition_history}}
+        </div>
+        <div class="artworkDesc mb-3"><span class="fw-medium">Publication History:
+            </span>{{artwork.publication_history}}</div>
+        <div class="artworkDesc mb-3"><span class="fw-medium">Credits: </span>{{artwork.credit_line}}</div>
+        <button class="btn w-25" (click)="handleSaveForLater()"
+            [ngClass]="{'btn-bg-main': savedForLater, 'btn-main': !savedForLater}">{{saveForLaterText}}</button>
+
+        <div class="socials">Share on Social Media
+
+            <ul class="d-flex list-style-none gap-4 ms-0 ps-0">
+                <li class="list-group-item ">
+                    <a href="" (click)="shareOnFacebook()" style="color: blue;">Facebook
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="blue"
+                            class="bi bi-facebook" viewBox="0 0 20 20">
+                            <path
+                                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                        </svg>
+                    </a>
+                </li>
+
+                <li class="list-group-item">
+                    <a href="" (click)="shareOnTwitter()" style="color: black;">Twitter
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black"
+                            class="bi bi-twitter-x" viewBox="0 0 20 20">
+                            <path
+                                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</main>
+<app-footer></app-footer>

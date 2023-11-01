@@ -1,0 +1,35 @@
+<div *ngIf="isLoaded" id="artwork" class="card bg-hover" style="width: 18rem;">
+    <i (click)="handleSaveForLater()" id="saveForLater-{{artwork_id}}"
+        class="bi {{saveForLaterIcon}} position-absolute fs-3 m-3 end-0 text-main" style="cursor: pointer;"></i>
+    <img [src]="artwork_image_url" class="object-fit-cover" alt="..." style="height: 18rem; width: auto;">
+    <div class="card-body">
+        <h4 class="card-title fw-medium text-truncate">{{artwork.title}}</h4>
+        <h5 class="card-text fst-italic text-truncate">by <span class="fw-small artist">{{artwork.artist_display}}</span></h5>
+        <h5 class="card-text fst-italic text-truncate">Place of origin: <span
+                class="fw-medium">{{artwork.place_of_origin}}</span>
+        </h5>
+
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-main" routerLink="/artwork/{{artwork_id}}">Take a Look</a>
+        </div>
+    </div>
+</div>
+<div *ngIf="!isLoaded" class="card " aria-hidden="true" style="width: 18rem;">
+    <img src="../../../assets/placeholder-image.png" alt="..."
+        style="height: 18rem; width: auto; mix-blend-mode: color-burn;">
+    <div class="card-body">
+        <h5 class="card-title placeholder-wave">
+            <span class="placeholder col-6"></span>
+        </h5>
+        <p class="card-text placeholder-glow">
+            <span class="placeholder col-7"></span>
+            <span class="placeholder col-4"></span>
+            <span class="placeholder col-4"></span>
+            <span class="placeholder col-6"></span>
+            <span class="placeholder col-8"></span>
+        </p>
+        <div class="d-flex justify-content-center">
+            <a href="#" tabindex="-1" class="btn btn-bg-main disabled placeholder col-6"></a>
+        </div>
+    </div>
+</div>

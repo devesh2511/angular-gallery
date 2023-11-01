@@ -1,0 +1,37 @@
+.artworkDesc{
+    font-size: 15px;
+    font-style: italic;
+}
+
+
+.image-container img{
+    max-width: 75vw;
+}
+
+img, .btn{
+    border-radius: 0px;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+svg:hover, a:hover{
+    transform: scale(1.2);
+    fill: #d90429;
+}
+
+ul{
+    margin: 20px;
+}
+
+.socials{
+    margin: 20px;
+}
+
+@media screen and (min-width: 1024px){
+    .image-container img{
+        max-width: 40vw;
+    }   
+}

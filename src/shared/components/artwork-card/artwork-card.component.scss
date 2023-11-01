@@ -1,0 +1,28 @@
+.bg-hover {
+    background-color: #fff0f3bf;
+}
+
+.bg-hover:hover {
+    background-color: #fff0f3;
+}
+
+.card {
+    background-color: #fff0f3bf;
+    border-radius: 0px;
+}
+
+.btn {
+    border-radius: 0px;
+}
+
+.btn:hover {
+    font-weight: 600;
+}
+
+h5 {
+    font-weight: 400;
+    font-size: 1rem;
+    .artist {
+        font-weight: 500;
+    }
+}

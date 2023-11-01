@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+<hr />
+
+<div id="main-container" class="container d-flex flex-column my-2" style="min-height: 80vh;">
+    <div id="action-bar" class="d-flex justify-content-center mt-3 flex-row-reverse"
+        style="height: 6em;">
+        <form [formGroup]="searchForm">
+            <mat-form-field class="bg-theme input-theme" style="width: 45vw;">
+                <mat-label>Search Arts..</mat-label>
+                <input matInput formControlName="searchQuery">
+            </mat-form-field>
+        </form>
+    </div>
+
+    <app-loader *ngIf="isLoading"></app-loader>
+
+    <div *ngIf="!isLoading" class="d-flex flex-wrap justify-content-center gap-4 mb-3">
+        <app-artwork-card *ngFor="let id of artworkIDs" [artwork_id]="id"></app-artwork-card>
+    </div>
+
+    <mat-paginator class="bg-theme text-main mt-0 d-flex justify-content-center position-relative"
+        [pageSizeOptions]="[12, 24, 36, 48, 60]" [pageSize]="pageEvent.pageSize" (page)="handlePageEvent($event)"
+        [length]="artworkListLength" aria-label="Select page" showFirstLastButtons>
+    </mat-paginator>
+</div>
+
+<app-footer></app-footer>

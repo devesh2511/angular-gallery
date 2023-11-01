@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+
+<div class="main" style="min-height: 100vh;">
+    <div class="jumbotron bg-theme">
+        <div class="container">
+            <h1 class="display-3">Added to WishList</h1>
+            <div class="fw-light" *ngIf="isEmpty">
+                <h2>Nothing in your WishList :(</h2>
+                <a routerLink="/" class="link text-main fs-3 mt-5 text-decoration-none">Explore Gallery</a>
+            </div>
+        </div>
+    </div>
+    <app-loader *ngIf="isLoading"></app-loader>
+
+    <div *ngIf="!isLoading" class="d-flex flex-wrap justify-content-center gap-4 mb-3">
+        <app-artwork-card *ngFor="let id of artworkIDs" [artwork_id]="id"></app-artwork-card>
+    </div>
+</div>
+
+<app-footer></app-footer>
